@@ -1,6 +1,5 @@
-package com.jumia.test.phonevalidation;
+package com.jumia.test.phonevalidation.controller;
 
-import com.jumia.test.phonevalidation.model.Country;
 import java.util.List;
 import com.jumia.test.phonevalidation.model.Customer;
 import com.jumia.test.phonevalidation.service.CustomerService;

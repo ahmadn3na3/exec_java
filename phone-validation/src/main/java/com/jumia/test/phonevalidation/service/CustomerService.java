@@ -29,40 +29,17 @@ public class CustomerService {
 
     private Customer validateCustomerPhone(Customer cus) {
         var phone = cus.getPhone();
-        if (Country.CAMEROON.hasCountryCode(phone)) {
-            cus.setCountry(Country.CAMEROON);
-            if (Country.CAMEROON.isvalidPhone(phone)) {
-                cus.setValid(true);
+
+        var countries = List.of(Country.CAMEROON, Country.ETHIOPIA, Country.UGANDA,
+                Country.MOZAMBIQUE, Country.MOROCCO);
+        for (Country country : countries) {
+            if (country.hasCountryCode(phone)) {
+                cus.setCountry(country);
+                if (country.isvalidPhone(phone)) {
+                    cus.setValid(true);
+                }
+                break;
             }
-            return cus;
-        }
-        if (Country.ETHIOPIA.hasCountryCode(phone)) {
-            cus.setCountry(Country.ETHIOPIA);
-            if (Country.ETHIOPIA.isvalidPhone(phone)) {
-                cus.setValid(true);
-            }
-            return cus;
-        }
-        if (Country.UGANDA.hasCountryCode(phone)) {
-            cus.setCountry(Country.UGANDA);
-            if (Country.UGANDA.isvalidPhone(phone)) {
-                cus.setValid(true);
-            }
-            return cus;
-        }
-        if (Country.MOROCCO.hasCountryCode(phone)) {
-            cus.setCountry(Country.MOROCCO);
-            if (Country.MOROCCO.isvalidPhone(phone)) {
-                cus.setValid(true);
-            }
-            return cus;
-        }
-        if (Country.MOZAMBIQUE.hasCountryCode(phone)) {
-            cus.setCountry(Country.MOZAMBIQUE);
-            if (Country.MOZAMBIQUE.isvalidPhone(phone)) {
-                cus.setValid(true);
-            }
-            return cus;
         }
         return cus;
 

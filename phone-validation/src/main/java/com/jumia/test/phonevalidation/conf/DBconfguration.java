@@ -5,12 +5,12 @@
 
 package com.jumia.test.phonevalidation.conf;
 
-import java.nio.file.Paths;
 import javax.sql.DataSource;
 import org.springframework.boot.jdbc.DataSourceBuilder;
 import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.Configuration;
 import lombok.extern.slf4j.Slf4j;
+import org.sqlite.SQLiteDataSource;
 
 /**
  *
@@ -25,7 +25,7 @@ public class DBconfguration {
     DataSource createSqliteDataSource() {
         log.info("datasource created");
         return DataSourceBuilder.create().driverClassName("org.sqlite.JDBC")
-                .url("jdbc:sqlite:" + this.getClass().getClassLoader().getResource("db/sample.db").getPath())
+                .url("jdbc:sqlite:" + this.getClass().getClassLoader().getResource("db/sample.db").getPath()).type(SQLiteDataSource.class)
                 .build();
     }
 }
