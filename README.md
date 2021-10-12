@@ -1,5 +1,5 @@
 # Task Phone Validation 
-#### this is the phone faildation task
+#### this is the phone validation task
 to run 
 ```console
 cd phone-validation
